@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="display-3">Lista di libri</h1>
+  <h1 class="display-3">{{title}}</h1>
   <div class="text-center">
     <table class="table">
       <tr>
@@ -10,7 +10,7 @@
       </tr>
       <tr *ngFor="let book of list">
         <th>{{ book.getCode() }}</th>
-        <td>{{ book.getTitle() }}</td>
+        <td><i>{{ book.getTitle() }}</i></td>
         <td>{{ book.getAuthor() }}</td>
         <td>{{ book.getBorrowedBy() }}</td>
       </tr>

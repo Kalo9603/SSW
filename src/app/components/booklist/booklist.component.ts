@@ -9,6 +9,8 @@ import { Book } from 'src/app/objects/Book';
 
 export class BooklistComponent {
 
+title = "Biblioteca";
+
 @Input() list = new Array<Book>;
 
 }
