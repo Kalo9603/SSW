@@ -5,11 +5,15 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BooklistComponent } from './components/booklist/booklist.component';
+import { AddBookComponent } from './components/addbook/addbook.component';
+import { FindbookComponent } from './components/findbook/findbook.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BooklistComponent
+    BooklistComponent,
+    AddBookComponent,
+    FindbookComponent
   ],
   imports: [
     BrowserModule,

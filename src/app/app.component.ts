@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Archive } from './objects/Archive';
+import { Book } from './objects/Book';
 import { ArchiveService } from './service/archive.service';
 
 @Component({
@@ -11,15 +11,14 @@ import { ArchiveService } from './service/archive.service';
 export class AppComponent {
   constructor(private data: ArchiveService) {}
 
-  archive = new Archive();
-  list = this.archive.getList();
+  list = new Array<Book>();
 
   ngOnInit() {
       try {
         this.data.get().subscribe((res) => {
           let list = JSON.parse(res);
           list.map((x: any) => {
-            this.archive.add(x.code, x.title, x.author, x.borrowedBy);
+            this.list.push(new Book(x.code, x.title, x.author, x.borrowedBy));
           });
         });
       } catch (e: any) {
