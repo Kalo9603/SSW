@@ -1,19 +1,18 @@
 <div class="container">
-  <h1 class="display-3">{{title}}</h1>
   <div class="text-center">
-    <table class="table">
-      <tr>
-        <th>Codice</th>
-        <th>Titolo</th>
-        <th>Autore</th>
-        <th>In prestito da</th>
-      </tr>
-      <tr *ngFor="let book of list">
-        <th>{{ book.getCode() }}</th>
-        <td><i>{{ book.getTitle() }}</i></td>
-        <td>{{ book.getAuthor() }}</td>
-        <td>{{ book.getBorrowedBy() }}</td>
-      </tr>
-    </table>
+      <table class="table">
+        <tr>
+          <th>Codice</th>
+          <th>Titolo</th>
+          <th>Autore</th>
+          <th>In prestito da</th>
+        </tr>
+        <tr *ngFor="let book of list">
+          <th>{{ book.getCode() }}</th>
+          <td><i>{{ book.getTitle() }}</i></td>
+          <td>{{ book.getAuthor() }}</td>
+          <td>{{ book.getBorrowedBy() }}</td>
+        </tr>
+      </table>
   </div>
 </div>

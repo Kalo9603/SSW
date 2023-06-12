@@ -5,9 +5,14 @@
         </button>
       </h2>
       <div id="addBook" class="accordion-collapse collapse hide" aria-labelledby="addBookHeader" data-bs-parent="#accordionContainer">
-        <div class="accordion-body">
-            Form con il nuovo libro
-        </div>
+        <form class="accordion-body">
+          <div>            
+            <input id="newCode" type="text" placeholder="Codice..." />
+            <input id="newTitle" type="text" placeholder="Titolo..." />
+            <input id="newAuthor" type="text" placeholder="Autore..." />
+          </div>
+            <button id="addBookBtn" type="button" class="bg-success text-white fw-bold" (click)="addBook()">Aggiungi</button>
+        </form>
       </div>
 </div>
 

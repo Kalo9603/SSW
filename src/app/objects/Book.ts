@@ -29,6 +29,7 @@ export class Book {
             this.setBorrowedBy(person);
         }
     }
+    
     public free() {
         if(!this.isFree()) {
             this.setBorrowedBy("");
