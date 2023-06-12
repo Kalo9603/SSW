@@ -2,3 +2,8 @@ h1 {
     text-align: center;
     margin: 24px;
 }
+
+td {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}

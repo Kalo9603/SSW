@@ -16,15 +16,16 @@ export class Archive {
 
     public findBook(code: string) {
         return this.list.filter(book => {
-            book.getCode() === code;
+            return book.getCode() === code;
         })[0];
     }
 
     public find(key: string) {
         return this.list.filter(book => {
-            book.getCode().includes(key) ||
-            book.getTitle().includes(key) ||
-            book.getAuthor().includes(key)
+            let lower = key.toLowerCase();
+            return book.getCode().toLowerCase().includes(lower) ||
+            book.getTitle().toLowerCase().includes(lower) ||
+            book.getAuthor().includes(lower)
         });
     }
 
@@ -36,9 +37,9 @@ export class Archive {
 
     public remove(code: string) {
         if(this.findBook(code).isFree()) {
-            this.setList(this.list.filter(book => 
-                book.getCode() !== code
-            ));
+            this.setList(this.list.filter(book => {
+                return book.getCode() !== code
+            }));
         }
     }
 

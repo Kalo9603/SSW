@@ -1,18 +1,16 @@
 <div class="container">
-  <div class="text-center">
-      <table class="table">
+      <table class="table text-center">
         <tr>
-          <th>Codice</th>
-          <th>Titolo</th>
-          <th>Autore</th>
-          <th>In prestito da</th>
+          <th scope="col">Codice</th>
+          <th scope="col">Titolo</th>
+          <th scope="col">Autore</th>
+          <th scope="col">In prestito da</th>
         </tr>
         <tr *ngFor="let book of list">
-          <th>{{ book.getCode() }}</th>
+          <th scope="row">{{ book.getCode() }}</th>
           <td><i>{{ book.getTitle() }}</i></td>
           <td>{{ book.getAuthor() }}</td>
           <td>{{ book.getBorrowedBy() }}</td>
         </tr>
       </table>
-  </div>
 </div>
