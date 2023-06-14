@@ -5,6 +5,7 @@
 .searchBar {
     border-radius: 8px;
     max-width: 500px;
+    margin: 12px auto;
 }
 
 .searchBar > * {
@@ -16,6 +17,7 @@
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     padding-left: 6px;
+    margin: auto;
 }
 
 .searchBarBtn {
@@ -27,7 +29,8 @@
 
 .searchResult {
     max-width: fit-content;
-    margin: 12px 0;
+    margin: 12px auto;
+    font-size: 14pt;
 }
 
 .searchResult p {

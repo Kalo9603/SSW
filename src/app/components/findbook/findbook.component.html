@@ -6,9 +6,10 @@
     </h2>
     <div id="findBook" class="accordion-collapse collapse hide" aria-labelledby="findBookHeader" data-bs-parent="#accordionContainer">
       <div class="accordion-body">
+
         <div class="searchBar">
           <input type="text" id="searchBarBox" class="searchBarBox" placeholder="Cerca..." (keyup)="find()" />
-          <button id="searchBtn" class="searchBarBtn bg-primary"><fa-icon [icon]="searchIcon" /></button>
+          <button id="searchBtn" class="searchBarBtn bg-primary" (click)="find()"><fa-icon [icon]="searchIcon" /></button>
         </div>
 
         <div class="searchResult text-white">
@@ -36,13 +37,14 @@
               <td>{{ bookTarget.getBorrowedBy() }}</td>
             </tr>
           </table>
+
           <div *ngIf="isFree === true">
-            <div>
+            <div class="flex">
               <button id="borrowBtn" type="button" class="bg-info text-white fw-bold" (click)="showBorrowForm()"><fa-icon [icon]="userIcon" /> Prestito</button>
               <button id="removeBtn" type="button" class="bg-danger text-white fw-bold" (click)="delete()" ><fa-icon [icon]="trashIcon" /> Elimina</button>
             </div>
            
-            <form *ngIf="showBorrowFormFlag">
+            <form *ngIf="showBorrowFormFlag" class="flex">
               <input id="person" type="text" placeholder="Persona..." />
               <button id="borrowBtn" type="button" class="bg-info text-white fw-bold" (click)="borrow()"><fa-icon [icon]="userIcon" /> Metti in prestito</button>
             </form>
@@ -56,4 +58,3 @@
 
     </div>
   </div>
-
