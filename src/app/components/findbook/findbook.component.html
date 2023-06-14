@@ -36,10 +36,20 @@
               <td>{{ bookTarget.getBorrowedBy() }}</td>
             </tr>
           </table>
-          <div *ngIf="isFree">
-            <button id="borrowBtn" type="button" class="bg-info text-white fw-bold"><fa-icon [icon]="userIcon" /> Prestito</button>
-            <button id="removeBtn" type="button" class="bg-danger text-white fw-bold" ><fa-icon [icon]="trashIcon" /> Elimina</button>
+          <div *ngIf="isFree === true">
+            <div>
+              <button id="borrowBtn" type="button" class="bg-info text-white fw-bold" (click)="showBorrowForm()"><fa-icon [icon]="userIcon" /> Prestito</button>
+              <button id="removeBtn" type="button" class="bg-danger text-white fw-bold" (click)="delete()" ><fa-icon [icon]="trashIcon" /> Elimina</button>
+            </div>
+           
+            <form *ngIf="showBorrowFormFlag">
+              <input id="person" type="text" placeholder="Persona..." />
+              <button id="borrowBtn" type="button" class="bg-info text-white fw-bold" (click)="borrow()"><fa-icon [icon]="userIcon" /> Metti in prestito</button>
+            </form>
 
+          </div>
+          <div *ngIf="isFree === false">
+            <button id="borrowBtn" type="button" class="bg-warning text-black fw-bold" (click)="free()"><fa-icon [icon]="lightUserIcon" /> Restituisci</button>
           </div>
         </div>
 
