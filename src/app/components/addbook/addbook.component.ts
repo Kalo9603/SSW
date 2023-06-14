@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArchiveService } from 'src/app/service/archive.service';
 import { Archive } from 'src/app/objects/Archive';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'addbook',
@@ -13,6 +14,7 @@ export class AddBookComponent implements OnInit {
   constructor(private data: ArchiveService) {}
 
   archive = new Archive();
+  icon = faPlus;
 
   addBook() {
 

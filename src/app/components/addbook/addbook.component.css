@@ -15,3 +15,7 @@ form button {
     padding: 6px;
     border-radius: 10px;
 }
+
+fa-icon {
+    margin-right: 8px;
+}

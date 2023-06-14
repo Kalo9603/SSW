@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BooklistComponent } from './components/booklist/booklist.component';
 import { AddBookComponent } from './components/addbook/addbook.component';
 import { FindbookComponent } from './components/findbook/findbook.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FindbookComponent } from './components/findbook/findbook.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [
     ArchiveService

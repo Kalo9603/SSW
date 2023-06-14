@@ -25,8 +25,12 @@ export class Archive {
             let lower = key.toLowerCase();
             return book.getCode().toLowerCase().includes(lower) ||
             book.getTitle().toLowerCase().includes(lower) ||
-            book.getAuthor().includes(lower)
+            book.getAuthor().toLowerCase().includes(lower);
         });
+    }
+
+    public countResults(key: string) {
+        return this.find(key).length;
     }
 
     public add(code: string, title: string, author: string, borrowedBy?: string) {

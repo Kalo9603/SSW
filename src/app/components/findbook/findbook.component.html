@@ -6,8 +6,44 @@
     </h2>
     <div id="findBook" class="accordion-collapse collapse hide" aria-labelledby="findBookHeader" data-bs-parent="#accordionContainer">
       <div class="accordion-body">
-        Form di ricerca
-      </div>
+        <div class="searchBar">
+          <input type="text" id="searchBarBox" class="searchBarBox" placeholder="Cerca..." (keyup)="find()" />
+          <button id="searchBtn" class="searchBarBtn bg-primary"><fa-icon [icon]="searchIcon" /></button>
+        </div>
+
+        <div class="searchResult text-white">
+          <div *ngIf="resultLen === -1"></div>
+          <div class="bg-success" *ngIf="resultLen > 0">
+            <p>{{resultLen}} risultat<span *ngIf="resultLen === 1">o</span><span *ngIf="resultLen > 1">i</span></p>
+          </div>
+          <div class="bg-danger" *ngIf="resultLen === 0">
+            <p>Nessun risultato</p>
+          </div>
+        </div>
+
+        <div class="bookTargetContainer" *ngIf="resultLen === 1">
+          <table class="table text-center">
+            <tr>
+              <th scope="col">Codice</th>
+              <th scope="col">Titolo</th>
+              <th scope="col">Autore</th>
+              <th scope="col">In prestito da</th>
+            </tr>
+            <tr>
+              <th scope="row">{{ bookTarget.getCode() }}</th>
+              <td><i>{{ bookTarget.getTitle() }}</i></td>
+              <td>{{ bookTarget.getAuthor() }}</td>
+              <td>{{ bookTarget.getBorrowedBy() }}</td>
+            </tr>
+          </table>
+          <div *ngIf="isFree">
+            <button id="borrowBtn" type="button" class="bg-info text-white fw-bold"><fa-icon [icon]="userIcon" /> Prestito</button>
+            <button id="removeBtn" type="button" class="bg-danger text-white fw-bold" ><fa-icon [icon]="trashIcon" /> Elimina</button>
+
+          </div>
+        </div>
+
+
     </div>
   </div>
 

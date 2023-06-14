@@ -1,0 +1,45 @@
+.searchBar button {
+    color: white;
+}
+
+.searchBar {
+    border-radius: 8px;
+    max-width: 500px;
+}
+
+.searchBar > * {
+    height: 40px;
+}
+
+.searchBarBox {
+    width: 85%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 6px;
+}
+
+.searchBarBtn {
+    width: 15%;
+    font-size: 14pt;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.searchResult {
+    max-width: fit-content;
+    margin: 12px 0;
+}
+
+.searchResult p {
+    padding: 6px 12px;
+}
+
+.bookTargetContainer button {
+    margin: 10px 10px 0;
+    padding: 6px 12px;
+    border-radius: 10px;
+}
+
+fa-icon {
+    margin-right: 8px;
+}
