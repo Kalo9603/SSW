@@ -15,7 +15,5 @@ export class AppComponent {
   constructor(private data: ArchiveService) {}
 
   archive = new Archive(this.data);
-  list = this.archive.getList();
-  len = this.archive.size();
   
 }

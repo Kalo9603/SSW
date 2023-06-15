@@ -11,7 +11,7 @@ export class Archive {
         this.list = new Array<Book>();
         this.data = data;
 
-        // Inizializzo dal server
+    // Inizializzo dal server
 
         try {
             this.data.get().subscribe((res) => {
@@ -30,8 +30,6 @@ export class Archive {
 
     private setList(list: Array<Book>) { this.list = list; }
 
-    public size() { return this.list.length; }
-
     public findBook(code: string) {
         return this.list.filter(book => {
             return book.getCode() === code;
@@ -41,8 +39,7 @@ export class Archive {
     public find(key: string) {
         return this.list.filter(book => {
             let lower = key.toLowerCase();
-            return book.getCode().toLowerCase().includes(lower) ||
-            book.getTitle().toLowerCase().includes(lower) ||
+            return book.getTitle().toLowerCase().includes(lower) ||
             book.getAuthor().toLowerCase().includes(lower);
         });
     }
@@ -78,4 +75,3 @@ export class Archive {
     }
 
 }
-
