@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Book } from 'src/app/objects/Book';
 import { Archive } from 'src/app/objects/Archive';
 import { ArchiveService } from 'src/app/service/archive.service';
@@ -12,7 +12,7 @@ import { faUser as lightUser } from '@fortawesome/free-regular-svg-icons';
   styleUrls: ['./findbook.component.css']
 })
 
-export class FindbookComponent implements OnInit {
+export class FindbookComponent {
 
   // Icone
   searchIcon = faMagnifyingGlass;
@@ -20,8 +20,7 @@ export class FindbookComponent implements OnInit {
   lightUserIcon = lightUser;
   trashIcon = faTrash;
 
-  archive = new Archive();
-  list = this.archive.getList();
+  @Input() archive = new Archive(this.data);
 
   resultLen = -1;
   bookTarget = new Book('', '', '');
@@ -76,19 +75,6 @@ export class FindbookComponent implements OnInit {
         'Il libro con codice ' + this.bookTarget.getCode() + ' è stato restituito!');
     });
     this.showBorrowFormFlag = false;
-  }
-
-  ngOnInit() {
-    try {
-      this.data.get().subscribe((res) => {
-        let list = JSON.parse(JSON.parse(res)).list;
-        list.map((x: any) => {
-          this.archive.add(x.code, x.title, x.author, x.borrowedBy);
-        });
-      });
-    } catch (e: any) {
-      console.error('Errore: ' + e.message);
-    }
   }
 
 }

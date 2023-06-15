@@ -1,11 +1,29 @@
 import { Book } from "./Book";
+import { ArchiveService } from "../service/archive.service";
 
 export class Archive {
 
     private list: Array<Book>;
+    private data: ArchiveService;
 
-    constructor() {
+    constructor(data: ArchiveService) {
+        
         this.list = new Array<Book>();
+        this.data = data;
+
+        // Inizializzo dal server
+
+        try {
+            this.data.get().subscribe((res) => {
+              let list = JSON.parse(JSON.parse(res)).list;
+              list.map((x: any) => {
+                this.add(x.code, x.title, x.author, x.borrowedBy);
+              });
+            });
+          } catch (e: any) {
+            console.error('Errore: ' + e.message);
+        }
+
     }
 
     public getList() { return this.list; }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Book } from 'src/app/objects/Book';
 import { Archive } from 'src/app/objects/Archive';
 import { ArchiveService } from 'src/app/service/archive.service';
 
@@ -10,23 +11,9 @@ import { ArchiveService } from 'src/app/service/archive.service';
 
 export class BooklistComponent {
 
-  constructor(private data: ArchiveService) {}
-
-  archive = new Archive();
+  @Input() archive = new Archive(this.data);
   list = this.archive.getList();
-  len = this.archive.size();
 
-  ngOnInit() {
-      try {
-        this.data.get().subscribe((res) => {
-          let list = JSON.parse(JSON.parse(res)).list;
-          list.map((x: any) => {
-            this.archive.add(x.code, x.title, x.author, x.borrowedBy);
-          });
-        });
-      } catch (e: any) {
-        console.error('Errore: ' + e.message);
-      }
-    }
+  constructor(private data: ArchiveService) {}
 
 }

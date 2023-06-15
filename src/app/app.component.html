@@ -1,7 +1,7 @@
-
 <h1 class="display-3 text-center">{{title}}</h1>
+<booklist [archive]="archive" />
 <div class="accordion" id="accordionContainer">
     <h2 class="display-4 text-center">Operazioni</h2>
-    <addbook />
+    <addbook [archive]="archive" />
     <findbook />
 </div>
