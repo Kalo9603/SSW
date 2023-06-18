@@ -16,6 +16,4 @@ export class AppComponent {
 
   archive = new Archive(this.data);
 
-  message = "Archivio caricato!";
-  
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Archive } from 'src/app/objects/Archive';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ArchiveService } from 'src/app/service/archive.service';
@@ -12,6 +12,7 @@ import { ArchiveService } from 'src/app/service/archive.service';
 export class AddBookComponent {
 
   @Input() archive = new Archive(this.data);
+
   icon = faPlus;
 
   constructor(private data: ArchiveService) {}
