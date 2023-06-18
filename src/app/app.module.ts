@@ -8,7 +8,8 @@ import { BooklistComponent } from './components/booklist/booklist.component';
 import { AddBookComponent } from './components/addbook/addbook.component';
 import { FindbookComponent } from './components/findbook/findbook.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NotificationComponent } from './notification/notification.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { DeletebookComponent } from './components/deletebook/deletebook.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NotificationComponent } from './notification/notification.component';
     BooklistComponent,
     AddBookComponent,
     FindbookComponent,
-    NotificationComponent
+    NotificationComponent,
+    DeletebookComponent
   ],
   imports: [
     BrowserModule,

@@ -41,7 +41,7 @@
           <div *ngIf="isFree === true">
             <div class="flex">
               <button id="borrowBtn" type="button" class="bg-info text-white fw-bold" (click)="showBorrowForm()"><fa-icon [icon]="userIcon" /> Prestito</button>
-              <button id="removeBtn" type="button" class="bg-danger text-white fw-bold" (click)="delete()" ><fa-icon [icon]="trashIcon" /> Elimina</button>
+              <deletebook [book]="bookTarget" [archive]="archive" />
             </div>
            
             <form *ngIf="showBorrowFormFlag" class="flex">

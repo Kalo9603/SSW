@@ -39,8 +39,7 @@ export class Archive {
     public find(key: string) {
         return this.list.filter(book => {
             let lower = key.toLowerCase();
-            return book.getTitle().toLowerCase().includes(lower) ||
-            book.getAuthor().toLowerCase().includes(lower);
+            return (book.getTitle() + book.getAuthor()).toLowerCase().includes(lower);
         });
     }
 
