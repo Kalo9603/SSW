@@ -25,17 +25,8 @@ export class BorrowComponent {
     this.archive.borrow(this.book.getCode(), person.value);
     this.data.set(JSON.stringify(this.archive)).subscribe(() => {
       alert(
-        'Il libro con codice ' + this.book.getCode() + ' è stato preso in prestito!');
+        'Il libro con codice ' + this.book.getCode() + ' è stato preso in prestito.');
     });
-  }
-
-  free() {
-    this.archive.free(this.book.getCode());
-    this.data.set(JSON.stringify(this.archive)).subscribe(() => {
-      alert(
-        'Il libro con codice ' + this.book.getCode() + ' è stato restituito!');
-    });
-    this.flag = false;
   }
 
 }

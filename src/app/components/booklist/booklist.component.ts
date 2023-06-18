@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Book } from 'src/app/objects/Book';
 import { Archive } from 'src/app/objects/Archive';
 import { ArchiveService } from 'src/app/service/archive.service';
 

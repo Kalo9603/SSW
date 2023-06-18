@@ -15,5 +15,7 @@ export class AppComponent {
   constructor(private data: ArchiveService) {}
 
   archive = new Archive(this.data);
+
+  message = "Archivio caricato!";
   
 }

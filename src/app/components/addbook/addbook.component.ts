@@ -23,7 +23,11 @@ export class AddBookComponent {
     let newAuthor = document.getElementById('newAuthor') as HTMLInputElement;
 
     if (!newCode.value || !newTitle.value || !newAuthor.value) {
-      alert('Bisogna compilare tutti i campi! Riprova.');
+      alert('Bisogna compilare tutti i campi. Riprovare.');
+
+    } else if(this.archive.findBook(newCode.value)) {
+
+      alert("Codice già in uso. Digitarne un altro.")
 
     } else {
 
@@ -31,9 +35,7 @@ export class AddBookComponent {
 
       this.data.set(JSON.stringify(this.archive)).subscribe(() => {
         alert(
-          'Il nuovo libro con codice ' + newCode.value + ', titolo ' +
-            newTitle.value + ' e autore ' +
-            newAuthor.value + ' è stato inserito!');
+          'Il nuovo libro con codice ' + newCode.value + ' è stato inserito.');
       });
     }
   }

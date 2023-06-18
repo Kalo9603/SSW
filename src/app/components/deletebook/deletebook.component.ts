@@ -20,11 +20,15 @@ export class DeletebookComponent {
 
   delete() {
 
-    this.archive.remove(this.book.getCode());
-    this.data.set(JSON.stringify(this.archive)).subscribe(() => {
-      alert(
-        'Il libro con codice ' + this.book.getCode() + ' è stato eliminato!');
-    });
+    if(!this.archive.findBook(this.book.getCode()).isFree()) {
+      alert("Impossibile rimuovere il libro poiché in prestito.");
+    } else {
+      this.archive.remove(this.book.getCode());
+      this.data.set(JSON.stringify(this.archive)).subscribe(() => {
+        alert(
+          'Il libro con codice ' + this.book.getCode() + ' è stato rimosso.');
+      });
+    }
 
   }
 
