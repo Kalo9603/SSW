@@ -10,6 +10,8 @@ import { FindbookComponent } from './components/findbook/findbook.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NotificationComponent } from './components/notification/notification.component';
 import { DeletebookComponent } from './components/deletebook/deletebook.component';
+import { BorrowComponent } from './components/borrow/borrow.component';
+import { FreeComponent } from './components/free/free.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { DeletebookComponent } from './components/deletebook/deletebook.componen
     AddBookComponent,
     FindbookComponent,
     NotificationComponent,
-    DeletebookComponent
+    DeletebookComponent,
+    BorrowComponent,
+    FreeComponent
   ],
   imports: [
     BrowserModule,

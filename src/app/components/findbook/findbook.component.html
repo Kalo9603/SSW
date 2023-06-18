@@ -43,16 +43,13 @@
               <button id="borrowBtn" type="button" class="bg-info text-white fw-bold" (click)="showBorrowForm()"><fa-icon [icon]="userIcon" /> Prestito</button>
               <deletebook [book]="bookTarget" [archive]="archive" />
             </div>
-           
-            <form *ngIf="showBorrowFormFlag" class="flex">
-              <input id="person" type="text" placeholder="Persona..." />
-              <button id="borrowBtn" type="button" class="bg-info text-white fw-bold" (click)="borrow()"><fa-icon [icon]="userIcon" /> Metti in prestito</button>
-            </form>
+
+            <borrow [book]="bookTarget" [archive]="archive" [flag]="showBorrowFormFlag" />
 
           </div>
-          <div *ngIf="isFree === false">
-            <button id="borrowBtn" type="button" class="bg-warning text-black fw-bold" (click)="free()"><fa-icon [icon]="lightUserIcon" /> Restituisci</button>
-          </div>
+
+          <free [book]="bookTarget" [archive]="archive" [flag]="isFree" [borrowFlag]="showBorrowFormFlag" />
+
         </div>
 
 

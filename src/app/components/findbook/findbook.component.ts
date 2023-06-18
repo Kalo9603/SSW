@@ -45,36 +45,8 @@ export class FindbookComponent {
     }
   }
 
-  delete() {
-
-    this.archive.remove(this.bookTarget.getCode());
-    this.data.set(JSON.stringify(this.archive)).subscribe(() => {
-      alert(
-        'Il libro con codice ' + this.bookTarget.getCode() + ' è stato eliminato!');
-    });
-
-  }
-
   showBorrowForm() {
     this.showBorrowFormFlag = !this.showBorrowFormFlag;
-  }
-
-  borrow() {
-    let person = document.getElementById('person') as HTMLInputElement;
-    this.archive.borrow(this.bookTarget.getCode(), person.value);
-    this.data.set(JSON.stringify(this.archive)).subscribe(() => {
-      alert(
-        'Il libro con codice ' + this.bookTarget.getCode() + ' è stato preso in prestito!');
-    });
-  }
-
-  free() {
-    this.archive.free(this.bookTarget.getCode());
-    this.data.set(JSON.stringify(this.archive)).subscribe(() => {
-      alert(
-        'Il libro con codice ' + this.bookTarget.getCode() + ' è stato restituito!');
-    });
-    this.showBorrowFormFlag = false;
   }
 
 }
