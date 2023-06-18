@@ -1,18 +1,34 @@
 import { Book } from "./Book";
+import { ArchiveService } from "../service/archive.service";
 
 export class Archive {
 
     private list: Array<Book>;
+    private data: ArchiveService;
 
-    constructor() {
+    constructor(data: ArchiveService) {
+        
         this.list = new Array<Book>();
+        this.data = data;
+
+    // Inizializzo dal server
+
+        try {
+            this.data.get().subscribe((res) => {
+              let list = JSON.parse(JSON.parse(res)).list;
+              list.map((x: any) => {
+                this.add(x.code, x.title, x.author, x.borrowedBy);
+              });
+            });
+          } catch (e: any) {
+            console.error('Errore: ' + e.message);
+        }
+
     }
 
     public getList() { return this.list; }
 
     private setList(list: Array<Book>) { this.list = list; }
-
-    public size() { return this.list.length; }
 
     public findBook(code: string) {
         return this.list.filter(book => {
@@ -23,9 +39,7 @@ export class Archive {
     public find(key: string) {
         return this.list.filter(book => {
             let lower = key.toLowerCase();
-            return book.getCode().toLowerCase().includes(lower) ||
-            book.getTitle().toLowerCase().includes(lower) ||
-            book.getAuthor().toLowerCase().includes(lower);
+            return (book.getTitle() + book.getAuthor()).toLowerCase().includes(lower);
         });
     }
 
@@ -60,4 +74,3 @@ export class Archive {
     }
 
 }
-

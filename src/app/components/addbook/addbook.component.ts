@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ArchiveService } from 'src/app/service/archive.service';
+import { Component, Input } from '@angular/core';
 import { Archive } from 'src/app/objects/Archive';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { ArchiveService } from 'src/app/service/archive.service';
 
 @Component({
   selector: 'addbook',
@@ -9,12 +9,12 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./addbook.component.css'],
 })
 
-export class AddBookComponent implements OnInit {
+export class AddBookComponent {
+
+  @Input() archive = new Archive(this.data);
+  icon = faPlus;
 
   constructor(private data: ArchiveService) {}
-
-  archive = new Archive();
-  icon = faPlus;
 
   addBook() {
 
@@ -23,7 +23,11 @@ export class AddBookComponent implements OnInit {
     let newAuthor = document.getElementById('newAuthor') as HTMLInputElement;
 
     if (!newCode.value || !newTitle.value || !newAuthor.value) {
-      alert('Bisogna compilare tutti i campi! Riprova.');
+      alert('Bisogna compilare tutti i campi. Riprovare.');
+
+    } else if(this.archive.findBook(newCode.value)) {
+
+      alert("Codice già in uso. Digitarne un altro.")
 
     } else {
 
@@ -31,23 +35,8 @@ export class AddBookComponent implements OnInit {
 
       this.data.set(JSON.stringify(this.archive)).subscribe(() => {
         alert(
-          'Il nuovo libro con codice ' + newCode.value + ', titolo ' +
-            newTitle.value + ' e autore ' +
-            newAuthor.value + ' è stato inserito!');
+          'Il nuovo libro con codice ' + newCode.value + ' è stato inserito.');
       });
-    }
-  }
-
-  ngOnInit() {
-    try {
-      this.data.get().subscribe((res) => {
-        let list = JSON.parse(JSON.parse(res)).list;
-        list.map((x: any) => {
-          this.archive.add(x.code, x.title, x.author, x.borrowedBy);
-        });
-      });
-    } catch (e: any) {
-      console.error('Errore: ' + e.message);
     }
   }
 

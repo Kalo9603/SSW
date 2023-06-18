@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Book } from './objects/Book';
 import { Archive } from './objects/Archive';
 import { ArchiveService } from './service/archive.service';
 
@@ -12,5 +11,11 @@ import { ArchiveService } from './service/archive.service';
 export class AppComponent {
 
   title = 'Biblioteca';
+
+  constructor(private data: ArchiveService) {}
+
+  archive = new Archive(this.data);
+
+  message = "Archivio caricato!";
   
 }

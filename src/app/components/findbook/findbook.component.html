@@ -8,7 +8,7 @@
       <div class="accordion-body">
 
         <div class="searchBar">
-          <input type="text" id="searchBarBox" class="searchBarBox" placeholder="Cerca..." (keyup)="find()" />
+          <input type="text" id="searchBarBox" class="searchBarBox" placeholder="Cerca titolo o autore..." (keyup)="find()" />
           <button id="searchBtn" class="searchBarBtn bg-primary" (click)="find()"><fa-icon [icon]="searchIcon" /></button>
         </div>
 
@@ -41,18 +41,15 @@
           <div *ngIf="isFree === true">
             <div class="flex">
               <button id="borrowBtn" type="button" class="bg-info text-white fw-bold" (click)="showBorrowForm()"><fa-icon [icon]="userIcon" /> Prestito</button>
-              <button id="removeBtn" type="button" class="bg-danger text-white fw-bold" (click)="delete()" ><fa-icon [icon]="trashIcon" /> Elimina</button>
+              <deletebook [book]="bookTarget" [archive]="archive" />
             </div>
-           
-            <form *ngIf="showBorrowFormFlag" class="flex">
-              <input id="person" type="text" placeholder="Persona..." />
-              <button id="borrowBtn" type="button" class="bg-info text-white fw-bold" (click)="borrow()"><fa-icon [icon]="userIcon" /> Metti in prestito</button>
-            </form>
+
+            <borrow [book]="bookTarget" [archive]="archive" [flag]="showBorrowFormFlag" />
 
           </div>
-          <div *ngIf="isFree === false">
-            <button id="borrowBtn" type="button" class="bg-warning text-black fw-bold" (click)="free()"><fa-icon [icon]="lightUserIcon" /> Restituisci</button>
-          </div>
+
+          <free [book]="bookTarget" [archive]="archive" [flag]="isFree" [borrowFlag]="showBorrowFormFlag" />
+
         </div>
 
 

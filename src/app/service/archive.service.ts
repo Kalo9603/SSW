@@ -13,10 +13,6 @@ export class ArchiveService {
 
   constructor(private http: HttpClient) {}
 
-  public new(): Observable<string> {
-    return this.http.get<string>(this.URL + "new?secret=ssw2022");
-  }
-
   public get(): Observable<string> {
     return this.http.get<string>(this.URL + "get?key=" + this.key);
   }
