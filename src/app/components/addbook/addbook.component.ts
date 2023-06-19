@@ -31,13 +31,8 @@ export class AddBookComponent {
       alert("Codice già in uso. Digitarne un altro.")
 
     } else {
-
       this.archive.add(newCode.value, newTitle.value, newAuthor.value);
-
-      this.data.set(JSON.stringify(this.archive)).subscribe(() => {
-        alert(
-          'Il nuovo libro con codice ' + newCode.value + ' è stato inserito.');
-      });
+      this.archive.update(this.archive, 'Il nuovo libro con codice ' + newCode.value + ' è stato inserito.');
     }
   }
 

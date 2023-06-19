@@ -23,11 +23,8 @@ export class FreeComponent {
 
   free() {
     this.archive.free(this.book.getCode());
-    this.data.set(JSON.stringify(this.archive)).subscribe(() => {
-      alert(
-        'Il libro con codice ' + this.book.getCode() + ' è stato restituito.');
-    });
-    this.borrowFlag = false;
+    this.archive.update(this.archive, 'Il libro con codice ' + this.book.getCode() + ' è stato restituito.');
+    this.flag = false;
   }
 
 }

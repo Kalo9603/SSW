@@ -23,10 +23,7 @@ export class BorrowComponent {
   borrow() {
     let person = document.getElementById('person') as HTMLInputElement;
     this.archive.borrow(this.book.getCode(), person.value);
-    this.data.set(JSON.stringify(this.archive)).subscribe(() => {
-      alert(
-        'Il libro con codice ' + this.book.getCode() + ' è stato preso in prestito.');
-    });
+    this.archive.update(this.archive, 'Il libro con codice ' + this.book.getCode() + ' è stato preso in prestito.');
   }
 
 }

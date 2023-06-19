@@ -24,10 +24,7 @@ export class DeletebookComponent {
       alert("Impossibile rimuovere il libro poiché in prestito.");
     } else {
       this.archive.remove(this.book.getCode());
-      this.data.set(JSON.stringify(this.archive)).subscribe(() => {
-        alert(
-          'Il libro con codice ' + this.book.getCode() + ' è stato rimosso.');
-      });
+      this.archive.update(this.archive, 'Il libro con codice ' + this.book.getCode() + ' è stato rimosso.');
     }
 
   }

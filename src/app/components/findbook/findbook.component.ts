@@ -3,7 +3,7 @@ import { Book } from 'src/app/objects/Book';
 import { Archive } from 'src/app/objects/Archive';
 import { ArchiveService } from 'src/app/service/archive.service';
 
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'findbook',
@@ -14,6 +14,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 export class FindbookComponent {
 
   // Icona
+  icon = faSearch;
   userIcon = faUser;
 
   @Input() archive = new Archive(this.data);

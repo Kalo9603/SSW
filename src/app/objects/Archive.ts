@@ -18,7 +18,7 @@ export class Archive {
 
             // Con il parse più interno estraggo la stringa
             // Con quello più esterno invece converto tale stringa in oggetto JSON da cui prelevo la lista con i dati
-            // Questo perché l'API è racchiusa tra due apici e sono costretto a toglierli entrambi
+            // Questo perché l'API è racchiusa tra due coppie di apici e sono costretto a toglierle entrambe
 
               let list = JSON.parse(JSON.parse(res)).list;
               list.map((x: any) => {
@@ -29,12 +29,17 @@ export class Archive {
           } catch (e: any) {
             console.error('Errore: ' + e.message);
         }
-
     }
 
     public getList() { return this.list; }
 
     private setList(list: Array<Book>) { this.list = list; }
+
+    public update(data: Archive, message: string) {
+        this.data.set(JSON.stringify(data)).subscribe(() => {
+        alert(message);
+        });
+    }
 
     public findBook(code: string) {
         return this.list.filter(book => {
@@ -44,8 +49,7 @@ export class Archive {
 
     public find(key: string) {
         return this.list.filter(book => {
-            let lower = key.toLowerCase();
-            return (book.getTitle() + book.getAuthor()).toLowerCase().includes(lower);
+            return (book.getTitle() + book.getAuthor()).toLowerCase().includes(key.toLowerCase());
         });
     }
 
