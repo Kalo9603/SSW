@@ -25,7 +25,7 @@ export class FreeComponent {
     this.archive.free(this.book.getCode());
     this.data.set(JSON.stringify(this.archive)).subscribe(() => {
       alert(
-        'Il libro con codice ' + this.book.getCode() + ' è stato restituito!');
+        'Il libro con codice ' + this.book.getCode() + ' è stato restituito.');
     });
     this.borrowFlag = false;
   }

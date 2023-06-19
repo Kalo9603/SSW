@@ -3,8 +3,7 @@ import { Book } from 'src/app/objects/Book';
 import { Archive } from 'src/app/objects/Archive';
 import { ArchiveService } from 'src/app/service/archive.service';
 
-import { faMagnifyingGlass, faUser, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { faUser as lightUser } from '@fortawesome/free-regular-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'findbook',
@@ -14,11 +13,8 @@ import { faUser as lightUser } from '@fortawesome/free-regular-svg-icons';
 
 export class FindbookComponent {
 
-  // Icone
-  searchIcon = faMagnifyingGlass;
+  // Icona
   userIcon = faUser;
-  lightUserIcon = lightUser;
-  trashIcon = faTrash;
 
   @Input() archive = new Archive(this.data);
 
