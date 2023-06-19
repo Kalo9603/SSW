@@ -27,19 +27,22 @@ export class FindbookComponent {
   constructor(private data: ArchiveService) {}
 
   find() {
-    let key = document.getElementById('searchBarBox') as HTMLInputElement;
-    if(key.value !== "") {
-      this.resultLen = this.archive.countResults(key.value);
-      if(this.resultLen === 1) {
-
-        let code = this.archive.find(key.value)[0].getCode();
-        this.bookTarget = this.archive.findBook(code);
-        this.isFree = this.bookTarget.isFree();
-
+    setInterval(() => {
+      let key = document.getElementById('searchBarBox') as HTMLInputElement;
+      if(key.value !== "") {
+        this.resultLen = this.archive.countResults(key.value);
+        if(this.resultLen === 1) {
+  
+          let code = this.archive.find(key.value)[0].getCode();
+          this.bookTarget = this.archive.findBook(code);
+          console.log("isFree: " + this.isFree);
+          this.isFree = this.bookTarget.isFree();
+  
+        }
+      } else {
+        this.resultLen = -1;
       }
-    } else {
-      this.resultLen = -1;
-    }
+    }, 1000);
   }
 
   showBorrowForm() {

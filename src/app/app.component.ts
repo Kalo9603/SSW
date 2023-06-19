@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Archive } from './objects/Archive';
 import { ArchiveService } from './service/archive.service';
 

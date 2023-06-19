@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Archive } from 'src/app/objects/Archive';
+import { Book } from 'src/app/objects/Book';
 import { ArchiveService } from 'src/app/service/archive.service';
 
 @Component({
@@ -8,11 +9,17 @@ import { ArchiveService } from 'src/app/service/archive.service';
   styleUrls: ['./booklist.component.css'],
 })
 
-export class BooklistComponent {
+export class BooklistComponent implements OnInit {
 
   @Input() archive = new Archive(this.data);
-  list = this.archive.getList();
+  list = new Array<Book>();
 
   constructor(private data: ArchiveService) {}
+
+  ngOnInit() {
+      setInterval(() => {
+        this.list = this.archive.getList();
+      }, 1000);
+  }
 
 }

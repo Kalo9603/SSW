@@ -24,6 +24,7 @@ export class BorrowComponent {
     let person = document.getElementById('person') as HTMLInputElement;
     this.archive.borrow(this.book.getCode(), person.value);
     this.archive.update(this.archive, 'Il libro con codice ' + this.book.getCode() + ' è stato preso in prestito.');
+    this.flag = false;
   }
 
 }
