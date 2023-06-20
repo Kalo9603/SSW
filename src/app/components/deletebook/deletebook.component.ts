@@ -17,6 +17,7 @@ export class DeletebookComponent {
   trashIcon = faTrash;
   @Input() book = new Book('', '', '');
   @Input() archive = new Archive(this.data);
+  alertData = { message: '', type: '', visible: false };
 
   delete() {
 
@@ -24,7 +25,8 @@ export class DeletebookComponent {
       alert("Impossibile rimuovere il libro poiché in prestito.");
     } else {
       this.archive.remove(this.book.getCode());
-      this.archive.update(this.archive, 'Il libro con codice ' + this.book.getCode() + ' è stato rimosso.');
+      this.archive.update(this.archive);
+      this.alertData = { message: 'Il libro con codice ' + this.book.getCode() + ' è stato rimosso.', type: 'success', visible: true };
     }
 
   }

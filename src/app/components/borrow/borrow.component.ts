@@ -19,12 +19,15 @@ export class BorrowComponent {
   @Input() book = new Book('', '', '');
   @Input() archive = new Archive(this.data);
   @Input() flag = new Boolean();
+  alertData = { message: '', type: '', visible: false };
 
   borrow() {
     let person = document.getElementById('person') as HTMLInputElement;
     this.archive.borrow(this.book.getCode(), person.value);
-    this.archive.update(this.archive, 'Il libro con codice ' + this.book.getCode() + ' è stato preso in prestito.');
+    this.archive.update(this.archive);
+    this.alertData = {message: 'Il libro con codice ' + this.book.getCode() + ' è stato preso in prestito.', type: 'success', visible: true};
     this.flag = false;
+
   }
 
 }

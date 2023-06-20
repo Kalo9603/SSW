@@ -1,0 +1,6 @@
+<div *ngIf="alertData.type === 'success' && alertData.visible" class="alert alert-success alert-dismissible fade show" role="alert" (mousemove)="close()">
+    {{alertData.message}}
+</div>
+<div *ngIf="alertData.type === 'fail' && alertData.visible" class="alert alert-danger alert-dismissible fade show" role="alert" (mousemove)="close()">
+    {{alertData.message}}
+</div>

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Archive } from 'src/app/objects/Archive';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ArchiveService } from 'src/app/service/archive.service';
@@ -12,6 +12,7 @@ import { ArchiveService } from 'src/app/service/archive.service';
 export class AddBookComponent {
 
   @Input() archive = new Archive(this.data);
+  alertData = { message: '', type: '', visible: false };
 
   icon = faPlus;
 
@@ -24,15 +25,13 @@ export class AddBookComponent {
     let newAuthor = document.getElementById('newAuthor') as HTMLInputElement;
 
     if (!newCode.value || !newTitle.value || !newAuthor.value) {
-      alert('Bisogna compilare tutti i campi. Riprovare.');
-
+      this.alertData = { message: 'Bisogna compilare tutti i campi. Riprova.', type: 'fail', visible: true };
     } else if(this.archive.findBook(newCode.value)) {
-
-      alert("Codice già in uso. Digitarne un altro.")
-
+      this.alertData = { message: 'Codice già in uso. Digitarne un altro.', type: 'fail', visible: true };
     } else {
       this.archive.add(newCode.value, newTitle.value, newAuthor.value);
-      this.archive.update(this.archive, 'Il nuovo libro con codice ' + newCode.value + ' è stato inserito.');
+      this.archive.update(this.archive);
+      this.alertData = { message: 'Il nuovo libro con codice ' + newCode.value + ' è stato inserito.', type: 'success', visible: true };
     }
   }
 

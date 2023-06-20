@@ -8,11 +8,9 @@ import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'findbook',
   templateUrl: './findbook.component.html',
-  styleUrls: ['./findbook.component.css']
+  styleUrls: ['./findbook.component.css'],
 })
-
 export class FindbookComponent {
-
   // Icona
   icon = faSearch;
   userIcon = faUser;
@@ -27,26 +25,21 @@ export class FindbookComponent {
   constructor(private data: ArchiveService) {}
 
   find() {
-    setInterval(() => {
-      let key = document.getElementById('searchBarBox') as HTMLInputElement;
-      if(key.value !== "") {
+    let key = document.getElementById('searchBarBox') as HTMLInputElement;
+    if(key.value !== "") {
+      setInterval(() => {
         this.resultLen = this.archive.countResults(key.value);
         if(this.resultLen === 1) {
-  
           let code = this.archive.find(key.value)[0].getCode();
           this.bookTarget = this.archive.findBook(code);
-          console.log("isFree: " + this.isFree);
           this.isFree = this.bookTarget.isFree();
-  
-        }
-      } else {
-        this.resultLen = -1;
-      }
-    }, 1000);
+        } else {
+          this.resultLen = -1;
+        } 
+      }, 1000); }
   }
 
   showBorrowForm() {
     this.showBorrowFormFlag = !this.showBorrowFormFlag;
   }
-
 }

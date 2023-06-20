@@ -5,6 +5,7 @@
         </button>
       </h2>
       <div id="addBook" class="accordion-collapse collapse hide" aria-labelledby="addBookHeader" data-bs-parent="#accordionContainer">
+        <notification [alertData]="alertData" />
         <form class="accordion-body">
           <div>            
             <input id="newCode" type="text" placeholder="Codice..." />

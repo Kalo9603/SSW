@@ -35,9 +35,8 @@ export class Archive {
 
     private setList(list: Array<Book>) { this.list = list; }
 
-    public update(data: Archive, message: string) {
+    public update(data: Archive) {
         this.data.set(JSON.stringify(data)).subscribe(() => {
-        alert(message);
         });
     }
 
@@ -49,7 +48,8 @@ export class Archive {
 
     public find(key: string) {
         return this.list.filter(book => {
-            return (book.getTitle() + book.getAuthor()).toLowerCase().includes(key.toLowerCase());
+            return (book.getCode() + book.getTitle() + book.getAuthor()).toLowerCase()
+                    .includes(key.toLowerCase());
         });
     }
 

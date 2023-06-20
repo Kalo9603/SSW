@@ -20,10 +20,12 @@ export class FreeComponent {
   @Input() archive = new Archive(this.data);
   @Input() flag = new Boolean();
   @Input() borrowFlag = new Boolean();
+  alertData = { message: '', type: '', visible: false };
 
   free() {
     this.archive.free(this.book.getCode());
-    this.archive.update(this.archive, 'Il libro con codice ' + this.book.getCode() + ' è stato restituito.');
+    this.archive.update(this.archive);
+    this.alertData = { message: 'Il libro con codice ' + this.book.getCode() + ' è stato restituito.', type: 'success', visible: true };
     this.flag = false;
   }
 

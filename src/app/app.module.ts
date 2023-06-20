@@ -11,6 +11,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DeletebookComponent } from './components/deletebook/deletebook.component';
 import { BorrowComponent } from './components/borrow/borrow.component';
 import { FreeComponent } from './components/free/free.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FreeComponent } from './components/free/free.component';
     FindbookComponent,
     DeletebookComponent,
     BorrowComponent,
-    FreeComponent
+    FreeComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
