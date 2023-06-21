@@ -17,7 +17,7 @@ export class NotificationComponent {
     if(this.alertData.visible) {
       setTimeout(() => {
         this.alertData.visible = false;
-      }, 1000);
+      }, 2000);
     }
   }
 
