@@ -18,7 +18,7 @@ export class ArchiveService {
   }
 
   public set(newData: string): Observable<string> {
-    return this.http.post<string>(this.URL + "set?key=" + this.key, JSON.stringify(newData));
+    return this.http.post<string>(this.URL + "set?key=" + this.key, newData);
   }
   
 }

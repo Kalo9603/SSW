@@ -1,16 +1,26 @@
-<div class="container">
-      <table class="table text-center">
-        <tr>
-          <th scope="col">Codice</th>
-          <th scope="col">Titolo</th>
-          <th scope="col">Autore</th>
-          <th scope="col">In prestito da</th>
-        </tr>
-        <tr *ngFor="let book of list">
-          <th scope="row">{{ book.getCode() }}</th>
-          <td><i>{{ book.getTitle() }}</i></td>
-          <td>{{ book.getAuthor() }}</td>
-          <td>{{ book.getBorrowedBy() }}</td>
-        </tr>
-      </table>
+<div class="accordion-item">
+  <h2 class="accordion-header" id="bookListHeader">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#bookList" aria-expanded="false" aria-controls="bookList">
+      Sfoglia l'elenco <span class="badge text-bg-primary">{{len}}</span>
+    </button>
+  </h2>
+  <div id="bookList" class="accordion-collapse collapse hide" aria-labelledby="bookListHeader" data-bs-parent="#accordionContainer">
+    <div class="accordion-body">
+      <div class="container">
+        <table class="table text-center">
+          <tr>
+            <th scope="col">Codice</th>
+            <th scope="col">Titolo</th>
+            <th scope="col">Autore</th>
+            <th scope="col">In prestito da</th>
+          </tr>
+          <tr *ngFor="let book of list">
+            <th scope="row">{{ book.getCode() }}</th>
+            <td><i>{{ book.getTitle() }}</i></td>
+            <td>{{ book.getAuthor() }}</td>
+            <td>{{ book.getBorrowedBy() }}</td>
+          </tr>
+        </table>
+    </div>
+  </div>
 </div>

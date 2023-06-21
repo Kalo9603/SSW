@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ArchiveService } from 'src/app/service/archive.service';
 import { Book } from 'src/app/objects/Book';
 import { Archive } from 'src/app/objects/Archive';
@@ -19,6 +19,7 @@ export class BorrowComponent {
   @Input() book = new Book('', '', '');
   @Input() archive = new Archive(this.data);
   @Input() flag = new Boolean();
+  @Output() alertEvent = new EventEmitter();
   alertData = { message: '', type: '', visible: false };
 
   borrow() {
@@ -26,8 +27,8 @@ export class BorrowComponent {
     this.archive.borrow(this.book.getCode(), person.value);
     this.archive.update(this.archive);
     this.alertData = {message: 'Il libro con codice ' + this.book.getCode() + ' è stato preso in prestito.', type: 'success', visible: true};
+    this.alertEvent.emit(this.alertData);
     this.flag = false;
-
   }
-
+  
 }

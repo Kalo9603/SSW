@@ -6,7 +6,7 @@
     </h2>
     <div id="findBook" class="accordion-collapse collapse hide" aria-labelledby="findBookHeader" data-bs-parent="#accordionContainer">
       <div class="accordion-body">
-
+        <notification [alertData]="alertData" />
         <div class="searchBar">
           <input type="text" id="searchBarBox" class="searchBarBox" placeholder="Cerca titolo o autore..." (keyup)="find()" />
           <button id="searchBtn" class="searchBarBtn bg-primary" (click)="find()"><fa-icon [icon]="icon" /></button>
@@ -41,14 +41,11 @@
           <div *ngIf="isFree === true">
             <div class="flex">
               <button id="borrowBtn" type="button" class="bg-info text-white fw-bold" (click)="showBorrowForm()"><fa-icon [icon]="userIcon" /> Prestito</button>
-              <deletebook [book]="bookTarget" [archive]="archive" />
+              <deletebook [book]="bookTarget" [archive]="archive" (alertEvent)="getAlert($event)" />
             </div>
-
-            <borrow [book]="bookTarget" [archive]="archive" [flag]="showBorrowFormFlag" />
-
+            <borrow [book]="bookTarget" [archive]="archive" [flag]="showBorrowFormFlag" (alertEvent)="getAlert($event)" />
           </div>
-
-          <free [book]="bookTarget" [archive]="archive" [flag]="isFree" [borrowFlag]="showBorrowFormFlag" />
+          <free [book]="bookTarget" [archive]="archive" [flag]="isFree" [borrowFlag]="showBorrowFormFlag" (alertEvent)="getAlert($event)" />
 
         </div>
 

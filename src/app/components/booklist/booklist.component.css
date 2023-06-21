@@ -7,3 +7,8 @@ td {
     padding-top: 6px;
     padding-bottom: 6px;
 }
+
+button span {
+    margin-left: 12px;
+    font-size: 10pt;
+}

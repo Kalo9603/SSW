@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from 'src/app/objects/Book';
 import { Archive } from 'src/app/objects/Archive';
 import { ArchiveService } from 'src/app/service/archive.service';
@@ -20,12 +20,15 @@ export class FreeComponent {
   @Input() archive = new Archive(this.data);
   @Input() flag = new Boolean();
   @Input() borrowFlag = new Boolean();
+  @Output() alertEvent = new EventEmitter();
+
   alertData = { message: '', type: '', visible: false };
 
   free() {
     this.archive.free(this.book.getCode());
     this.archive.update(this.archive);
     this.alertData = { message: 'Il libro con codice ' + this.book.getCode() + ' è stato restituito.', type: 'success', visible: true };
+    this.alertEvent.emit(this.alertData);
     this.flag = false;
   }
 

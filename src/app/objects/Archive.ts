@@ -15,12 +15,7 @@ export class Archive {
 
         try {
             this.data.get().subscribe((res) => {
-
-            // Con il parse più interno estraggo la stringa
-            // Con quello più esterno invece converto tale stringa in oggetto JSON da cui prelevo la lista con i dati
-            // Questo perché l'API è racchiusa tra due coppie di apici e sono costretto a toglierle entrambe
-
-              let list = JSON.parse(JSON.parse(res)).list;
+              let list = JSON.parse(res).list;
               list.map((x: any) => {
                 this.add(x.code, x.title, x.author, x.borrowedBy);
               });

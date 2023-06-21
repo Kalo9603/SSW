@@ -13,12 +13,14 @@ export class BooklistComponent implements OnInit {
 
   @Input() archive = new Archive(this.data);
   list = new Array<Book>();
+  len = this.list.length;
 
   constructor(private data: ArchiveService) {}
 
   ngOnInit() {
       setInterval(() => {
         this.list = this.archive.getList();
+        this.len = this.list.length;
       }, 1000);
   }
 

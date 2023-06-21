@@ -10,6 +10,7 @@ import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './findbook.component.html',
   styleUrls: ['./findbook.component.css'],
 })
+
 export class FindbookComponent {
   // Icona
   icon = faSearch;
@@ -21,6 +22,7 @@ export class FindbookComponent {
   bookTarget = new Book('', '', '');
   isFree = this.bookTarget.isFree();
   showBorrowFormFlag = false;
+  alertData = { message: '', type: '', visible: false };
 
   constructor(private data: ArchiveService) {}
 
@@ -30,12 +32,9 @@ export class FindbookComponent {
       if(key.value !== "") {
         this.resultLen = this.archive.countResults(key.value);
         if(this.resultLen === 1) {
-
           let code = this.archive.find(key.value)[0].getCode();
           this.bookTarget = this.archive.findBook(code);
-          console.log("isFree: " + this.isFree);
           this.isFree = this.bookTarget.isFree();
-
         }
       } else {
         this.resultLen = -1;
@@ -46,4 +45,9 @@ export class FindbookComponent {
   showBorrowForm() {
     this.showBorrowFormFlag = !this.showBorrowFormFlag;
   }
+
+  getAlert(event: any) {
+    this.alertData = event;
+  }
+
 }
