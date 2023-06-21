@@ -13,5 +13,7 @@ Nelle view dei singoli components si è adottata la tecnologia Bootstrap.
 La Web App è essenzialmente un accordion con tre sezioni:
 
 Nella prima è possibile consultare la lista completa dei libri;
+
 Nella seconda aggiungerne;
+
 Nell'ultima cercarne, metterli e dare in prestito a persone.
