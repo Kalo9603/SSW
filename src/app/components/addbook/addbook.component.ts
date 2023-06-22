@@ -35,4 +35,17 @@ export class AddBookComponent {
     }
   }
 
+  clearCache() {
+
+    let newCode = document.getElementById('newCode') as HTMLInputElement;
+    let newTitle = document.getElementById('newTitle') as HTMLInputElement;
+    let newAuthor = document.getElementById('newAuthor') as HTMLInputElement;
+
+    if(newCode.value !== "" || newTitle.value !== "" || newAuthor.value !== "") {
+      newCode.value = "";
+      newTitle.value = "";
+      newAuthor.value = "";
+    }
+  }
+
 }

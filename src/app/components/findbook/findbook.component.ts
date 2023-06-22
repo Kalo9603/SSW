@@ -40,6 +40,7 @@ export class FindbookComponent {
         this.resultLen = -1;
       }
     }, 1000);
+    this.showBorrowFormFlag = false;
   }
 
   showBorrowForm() {
@@ -48,6 +49,14 @@ export class FindbookComponent {
 
   getAlert(event: any) {
     this.alertData = event;
+  }
+
+  clearCache() {
+    let key = document.getElementById('searchBarBox') as HTMLInputElement;
+    if(key.value !== "") {
+      key.value = "";
+      this.resultLen = -1;
+    }
   }
 
 }

@@ -17,9 +17,6 @@ export class Book {
     public getAuthor() { return this.author; }
     public getBorrowedBy() { return this.borrowedBy; }
     
-    public setCode(code: string) { this.code = code; }
-    public setTitle(title: string) { this.title = title; }
-    public setAuthor(author: string) { this.author = author; }
     public setBorrowedBy(borrowedBy: string) { this.borrowedBy = borrowedBy; }
 
     public isFree() { return (this.borrowedBy ? false : true) };

@@ -31,8 +31,7 @@ export class Archive {
     private setList(list: Array<Book>) { this.list = list; }
 
     public update(data: Archive) {
-        this.data.set(JSON.stringify(data)).subscribe(() => {
-        });
+        this.data.set(JSON.stringify(data.getList())).subscribe();
     }
 
     public findBook(code: string) {
