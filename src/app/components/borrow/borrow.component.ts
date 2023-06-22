@@ -19,7 +19,7 @@ export class BorrowComponent {
   @Input() book = new Book('', '', '');
   @Input() archive = new Archive(this.data);
   @Input() flag = new Boolean();
-  
+
   @Output() alertEvent = new EventEmitter();
   alertData = { message: '', type: '', visible: false };
 
@@ -29,7 +29,7 @@ export class BorrowComponent {
     this.archive.update(this.archive);
     this.alertData = {message: 'Il libro con codice ' + this.book.getCode() + ' è stato preso in prestito da ' + person.value + '.', type: 'success', visible: true};
     this.alertEvent.emit(this.alertData);
-    this.flag = false;
+    this.flag = !this.flag;
   }
   
 }

@@ -57,6 +57,7 @@ export class FindbookComponent {
       key.value = "";
       this.resultLen = -1;
     }
+    this.alertData.visible = false;
   }
 
 }

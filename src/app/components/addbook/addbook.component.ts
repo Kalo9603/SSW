@@ -46,6 +46,9 @@ export class AddBookComponent {
       newTitle.value = "";
       newAuthor.value = "";
     }
+
+    this.alertData.visible = false;
+
   }
 
 }

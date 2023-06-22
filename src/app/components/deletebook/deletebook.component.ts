@@ -30,6 +30,14 @@ export class DeletebookComponent {
       this.alertData = { message: 'Il libro con codice ' + this.book.getCode() + ' è stato rimosso.', type: 'success', visible: true };
     }
     this.alertEvent.emit(this.alertData);
+    this.clearCache();
+  }
+
+  clearCache() {
+    let key = document.getElementById('searchBarBox') as HTMLInputElement;
+    if(key.value !== "") {
+      key.value = "";
+    }
   }
 
 }

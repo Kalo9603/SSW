@@ -15,7 +15,7 @@ export class Archive {
 
         try {
             this.data.get().subscribe((res) => {
-              let list = JSON.parse(res).list;
+              let list = JSON.parse(res);
               list.map((x: any) => {
                 this.add(x.code, x.title, x.author, x.borrowedBy);
               });

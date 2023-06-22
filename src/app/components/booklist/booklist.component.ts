@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Archive } from 'src/app/objects/Archive';
 import { Book } from 'src/app/objects/Book';
 import { ArchiveService } from 'src/app/service/archive.service';
+import { faBook } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'booklist',
@@ -14,6 +15,8 @@ export class BooklistComponent implements OnInit {
   @Input() archive = new Archive(this.data);
   list = new Array<Book>();
   len = this.list.length;
+
+  icon = faBook;
 
   constructor(private data: ArchiveService) {}
 
