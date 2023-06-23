@@ -19,8 +19,8 @@ export class FreeComponent {
   @Input() book = new Book('', '', '');
   @Input() archive = new Archive(this.data);
   @Input() flag = new Boolean();
-  @Input() borrowFlag = new Boolean();
   @Output() alertEvent = new EventEmitter();
+  @Output() flagEvent = new EventEmitter<Boolean>();
 
   alertData = { message: '', type: '', visible: false };
 
@@ -28,8 +28,9 @@ export class FreeComponent {
     this.archive.free(this.book.getCode());
     this.archive.update(this.archive);
     this.alertData = { message: 'Il libro con codice ' + this.book.getCode() + ' è stato restituito.', type: 'success', visible: true };
-    this.alertEvent.emit(this.alertData);
     this.flag = false;
+    this.alertEvent.emit(this.alertData);
+    this.flagEvent.emit(this.flag);
   }
 
 }

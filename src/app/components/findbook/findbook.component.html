@@ -38,14 +38,16 @@
             </tr>
           </table>
 
-          <div *ngIf="isFree === true">
+          <div *ngIf="isFree">
             <div class="flex">
               <button id="borrowBtn" type="button" class="bg-info text-white fw-bold" (click)="showBorrowForm()"><fa-icon [icon]="userIcon" /> Prestito</button>
               <deletebook [book]="bookTarget" [archive]="archive" (alertEvent)="getAlert($event)" />
             </div>
             <borrow [book]="bookTarget" [archive]="archive" [flag]="showBorrowFormFlag" (alertEvent)="getAlert($event)" />
           </div>
-          <free [book]="bookTarget" [archive]="archive" [flag]="isFree" [borrowFlag]="showBorrowFormFlag" (alertEvent)="getAlert($event)" />
+          <div *ngIf="!isFree">
+            <free [book]="bookTarget" [archive]="archive" [flag]="showBorrowFormFlag" (flagEvent)="showBorrowForm()" (alertEvent)="getAlert($event)" />
+          </div>
 
         </div>
 

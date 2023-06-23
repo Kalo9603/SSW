@@ -29,7 +29,7 @@ export class BorrowComponent {
     this.archive.update(this.archive);
     this.alertData = {message: 'Il libro con codice ' + this.book.getCode() + ' è stato preso in prestito da ' + person.value + '.', type: 'success', visible: true};
     this.alertEvent.emit(this.alertData);
-    this.flag = !this.flag;
+    this.flag = false;
   }
   
 }
