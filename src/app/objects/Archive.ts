@@ -28,6 +28,8 @@ export class Archive {
 
     public getList() { return this.list; }
 
+    // Tengo questo setter private perché lo utilizzo solo per il metodo di rimozione
+    // e per prevenirne un utilizzo improprio fuori dalla classe
     private setList(list: Array<Book>) { this.list = list; }
 
     public update(data: Archive) {

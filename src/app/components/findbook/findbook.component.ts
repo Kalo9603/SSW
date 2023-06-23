@@ -12,7 +12,7 @@ import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 
 export class FindbookComponent {
-  // Icona
+
   icon = faSearch;
   userIcon = faUser;
 

@@ -26,8 +26,10 @@ export class AddBookComponent {
 
     if (!newCode.value || !newTitle.value || !newAuthor.value) {
       this.alertData = { message: 'Bisogna compilare tutti i campi. Riprova.', type: 'fail', visible: true };
+
     } else if(this.archive.findBook(newCode.value)) {
       this.alertData = { message: 'Codice già in uso. Digitarne un altro.', type: 'fail', visible: true };
+      
     } else {
       this.archive.add(newCode.value, newTitle.value, newAuthor.value);
       this.archive.update(this.archive);
