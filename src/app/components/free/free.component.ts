@@ -1,8 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Book } from 'src/app/objects/Book';
-import { Archive } from 'src/app/objects/Archive';
-import { ArchiveService } from 'src/app/service/archive.service';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { Archive } from '../../objects/Archive';
+import { Book } from '../../objects/Book';
+import { ArchiveService } from '../../service/archive.service';
 
 @Component({
   selector: 'free',
@@ -13,8 +12,6 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 export class FreeComponent {
 
   constructor(private data: ArchiveService) {}
-
-  icon = faUser;
 
   @Input() book = new Book('', '', '');
   @Input() archive = new Archive(this.data);

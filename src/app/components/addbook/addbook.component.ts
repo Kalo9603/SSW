@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Archive } from 'src/app/objects/Archive';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { ArchiveService } from 'src/app/service/archive.service';
+import { Archive } from '../../objects/Archive';
+import { ArchiveService } from '../../service/archive.service';
 
 @Component({
   selector: 'addbook',
@@ -13,8 +12,6 @@ export class AddBookComponent {
 
   @Input() archive = new Archive(this.data);
   alertData = { message: '', type: '', visible: false };
-
-  icon = faPlus;
 
   constructor(private data: ArchiveService) {}
 

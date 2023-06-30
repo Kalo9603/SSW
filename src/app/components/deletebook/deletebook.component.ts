@@ -1,8 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Book } from 'src/app/objects/Book';
-import { Archive } from 'src/app/objects/Archive';
-import { ArchiveService } from 'src/app/service/archive.service';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Archive } from '../../objects/Archive';
+import { Book } from '../../objects/Book';
+import { ArchiveService } from '../../service/archive.service';
 
 @Component({
   selector: 'deletebook',
@@ -14,7 +13,6 @@ export class DeletebookComponent {
 
   constructor(private data: ArchiveService) {}
 
-  trashIcon = faTrash;
   @Input() book = new Book('', '', '');
   @Input() archive = new Archive(this.data);
   @Output() alertEvent = new EventEmitter();

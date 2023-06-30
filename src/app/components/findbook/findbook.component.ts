@@ -1,9 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Book } from 'src/app/objects/Book';
-import { Archive } from 'src/app/objects/Archive';
-import { ArchiveService } from 'src/app/service/archive.service';
-
-import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Archive } from '../../objects/Archive';
+import { Book } from '../../objects/Book';
+import { ArchiveService } from '../../service/archive.service';
 
 @Component({
   selector: 'findbook',
@@ -12,9 +10,6 @@ import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 
 export class FindbookComponent {
-
-  icon = faSearch;
-  userIcon = faUser;
 
   @Input() archive = new Archive(this.data);
 

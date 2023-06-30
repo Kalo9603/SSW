@@ -1,48 +1,48 @@
 .searchBar button {
-    color: white;
+  color: white;
 }
 
 .searchBar {
-    border-radius: 8px;
-    max-width: 500px;
-    margin: 12px auto;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 12px auto;
 }
 
 .searchBar > * {
-    height: 40px;
+  height: 40px;
 }
 
 .searchBarBox {
-    width: 85%;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    padding-left: 6px;
-    margin: auto;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 6px;
+  margin: auto;
 }
 
 .searchBarBtn {
-    width: 15%;
-    font-size: 14pt;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+  width: 15%;
+  font-size: 14pt;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .searchResult {
-    max-width: fit-content;
-    margin: 12px auto;
-    font-size: 14pt;
+  max-width: fit-content;
+  margin: 12px auto;
+  font-size: 14pt;
 }
 
 .searchResult p {
-    padding: 6px 12px;
+  padding: 6px 12px;
 }
 
 .bookTargetContainer button {
-    margin: 10px 10px 0;
-    padding: 6px 12px;
-    border-radius: 10px;
+  margin: 10px 10px 0;
+  padding: 6px 12px;
+  border-radius: 10px;
 }
 
 fa-icon {
-    margin-right: 8px;
+  margin-right: 8px;
 }

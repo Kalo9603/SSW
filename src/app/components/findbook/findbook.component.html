@@ -9,7 +9,6 @@
         <notification [alertData]="alertData" />
         <div class="searchBar">
           <input type="text" id="searchBarBox" class="searchBarBox" placeholder="Cerca titolo o autore..." (keyup)="find()" />
-          <button id="searchBtn" class="searchBarBtn bg-primary" (click)="find()"><fa-icon [icon]="icon" /></button>
         </div>
 
         <div class="searchResult text-white">
@@ -40,7 +39,7 @@
 
           <div *ngIf="isFree">
             <div class="flex">
-              <button id="borrowBtn" type="button" class="bg-info text-white fw-bold" (click)="showBorrowForm()"><fa-icon [icon]="userIcon" /> Prestito</button>
+              <button id="borrowBtn" type="button" class="bg-info text-white fw-bold" (click)="showBorrowForm()"> Prestito</button>
               <deletebook [book]="bookTarget" [archive]="archive" (alertEvent)="getAlert($event)" />
             </div>
             <borrow [book]="bookTarget" [archive]="archive" [flag]="showBorrowFormFlag" (alertEvent)="getAlert($event)" />
